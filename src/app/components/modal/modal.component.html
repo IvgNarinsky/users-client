@@ -1,0 +1,75 @@
+<div class="modal-overlay">
+    <div class="modal">
+        <div class="modal-header">
+            <h2>{{ data.action === 'edit' ? 'Edit User' : 'Add User' }}</h2>
+            <span class="close-button" (click)="onCancel()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form class="modal-form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <!-- Id Field  -->
+                    <mat-form-field>
+                        <mat-label>ID</mat-label>
+                        <input matInput formControlName="id" required (keydown)="clearErrors()" />
+                        <mat-error *ngIf="userForm.get('id')?.hasError('required') && userForm.get('id')?.touched">
+                            ID is required.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <!-- Name Field -->
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="name" required (keydown)="clearErrors()" />
+                        <mat-error *ngIf="userForm.get('name')?.hasError('required') && userForm.get('name')?.touched">
+                            Name is required.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <!-- Email Field -->
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" (keydown)="clearErrors()" />
+                    </mat-form-field>
+
+                    <!-- BirthDate Field with Datepicker -->
+                    <mat-form-field>
+                        <mat-label>BirthDate</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="birthDate" required [max]="today"
+                            (dateChange)="clearErrors()" />
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error
+                            *ngIf="userForm.get('birthDate')?.hasError('required') && userForm.get('birthDate')?.touched">
+                            BirthDate is required.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <!-- Gender Field -->
+                    <mat-form-field>
+                        <mat-label>Gender</mat-label>
+                        <mat-select formControlName="gender" (click)="clearErrors()">
+                            <mat-option value="male">Male</mat-option>
+                            <mat-option value="female">Female</mat-option>
+                            <mat-option value="other">Other</mat-option>
+                        </mat-select>
+
+                    </mat-form-field>
+
+                    <!-- Tel Field -->
+                    <mat-form-field>
+                        <mat-label>Tel</mat-label>
+                        <input matInput formControlName="tel" (keydown)="clearErrors()" />
+                    </mat-form-field>
+                </div>
+                <div class="buttons">
+                    <button type="submit" mat-raised-button>Submit</button>
+                </div>
+                <div class="error">{{errorMessage}}</div>
+
+
+            </form>
+        </div>
+    </div>
+</div>

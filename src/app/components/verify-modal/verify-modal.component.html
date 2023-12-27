@@ -1,0 +1,16 @@
+<div class="modal-overlay">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button" (click)="onCancel()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h4>{{message}}</h4>
+            <div class="buttons">
+                <button mat-raised-button (click)="onCancel()">No</button>
+                <button mat-raised-button (click)="onConfirm()">Yes</button>
+
+            </div>
+            <div class="error">{{errorMessage}}</div>
+        </div>
+    </div>
+</div>

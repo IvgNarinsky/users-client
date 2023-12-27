@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.box {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+
+}
+
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: darkgray transparent;
+    padding-right: 10px;
+
+    &::-webkit-scrollbar {
+        width: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: darkgray;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+}
+
+
+
+.mat-elevation-z8 {
+    margin-top: 20px;
+}
+
+.mat-row-empty {
+    font-style: italic;
+}
+
+.button-container {
+    border-bottom: 0.8px solid lightgray;
+    padding-bottom: 10px;
+}
+
+.empty-table {
+    padding-top: 20px;
+}

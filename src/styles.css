@@ -1,0 +1,22 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "node_modules/angular-notifier/styles";
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.btn {
+    padding: 10px
+}
+
+.error {
+    margin-top: 10px;
+    color: red;
+    font-size: 12px;
+}

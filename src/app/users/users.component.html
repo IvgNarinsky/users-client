@@ -1,0 +1,71 @@
+<div class="container" [hidden]="isDisplayTable">
+    <div class="box">
+        <div class="button-container">
+            <button mat-raised-button (click)="addUser()">
+                Add User
+            </button>
+
+        </div>
+        <div class="table-container">
+            <table mat-table [dataSource]="dataSource" class="">
+                <!-- Id Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>ID</th>
+                    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+                </ng-container>
+
+                <!-- Email Column -->
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef>Email</th>
+                    <td mat-cell *matCellDef="let element">{{element.email}}</td>
+                </ng-container>
+
+                <!-- BirthDate Column -->
+                <ng-container matColumnDef="birthDate">
+                    <th mat-header-cell *matHeaderCellDef>BirthDate</th>
+                    <td mat-cell *matCellDef="let element">{{element.birthDate}}</td>
+                </ng-container>
+
+                <!-- Gender Column -->
+                <ng-container matColumnDef="gender">
+                    <th mat-header-cell *matHeaderCellDef>Gender</th>
+                    <td mat-cell *matCellDef="let element">{{element.gender}}</td>
+                </ng-container>
+
+
+                <!-- Tel Column -->
+                <ng-container matColumnDef="tel">
+                    <th mat-header-cell *matHeaderCellDef>Tel</th>
+                    <td mat-cell *matCellDef="let element">{{element.tel}}</td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button matTooltip="Edit" (click)="editUser(element)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button matTooltip="Delete" (click)="deleteUser(element.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+            </table>
+            <div class="mat-row-empty empty-table" *ngIf="dataSource.length === 0 && errorMessage === ''">
+                No data available
+            </div>
+            <div class="error">{{errorMessage}}</div>
+        </div>
+    </div>
+</div>
+<notifier-container></notifier-container>
